@@ -44,14 +44,14 @@ jobs:
         cd ..
     
     - name: Upload build artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: shopizer-shop-build-${{ github.sha }}
         path: shopizer-shop-build.tar.gz
         retention-days: 30
     
     - name: Upload build folder
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: build-folder-${{ github.sha }}
         path: build/
@@ -74,7 +74,7 @@ jobs:
         docker save shopizer-shop:${{ github.sha }} | gzip > shopizer-shop-docker.tar.gz
     
     - name: Upload Docker image
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: docker-image-${{ github.sha }}
         path: shopizer-shop-docker.tar.gz
