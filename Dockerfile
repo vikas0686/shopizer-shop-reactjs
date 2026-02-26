@@ -1,13 +1,13 @@
 # build env
-FROM node:13.12.0-alpine as builder
+FROM node:13.12.0-alpine AS builder
 WORKDIR /app
-ENV PATH /app/node_modules/.bin:$PATH
+ENV PATH=/app/node_modules/.bin:$PATH
 COPY package*.json ./
 COPY .env ./
 COPY env.sh ./
 COPY conf ./
 #remove internal .env file
-RUN npm ci --silent
+RUN npm install --legacy-peer-deps --silent
 #must match package.json react-scripts
 COPY . .
 RUN npm run build
