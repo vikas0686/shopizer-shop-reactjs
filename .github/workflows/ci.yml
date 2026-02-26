@@ -34,8 +34,6 @@ jobs:
     
     - name: Build application
       run: npm run build
-      env:
-        NODE_OPTIONS: --openssl-legacy-provider
     
     - name: Create artifact archive
       run: |
